@@ -89,7 +89,7 @@ then
     mv -v $APP_NAME $LOCAL/idea
     mecho "Installed in $LOCAL/idea/" $_GREEN
     mecho "You should add the next line to your ~/.bashrc"
-    mecho "PATH=$PATH:$LOCAL/idea/bin"
+    mecho 'PATH=$PATH:$LOCAL/idea/bin'
     mecho "$LOCAL/idea/bin/idea.sh" $_YELLOW
 else
     mecho "$DIR/$APP_NAME/bin/idea.sh" $_YELLOW
