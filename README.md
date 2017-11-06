@@ -14,3 +14,6 @@ Cependant, si vous souhaitez un ide, nous vous invitons à utiliser [IntelliJ](h
 Vous pouvez utiliser le script d'installation dédié aux ordinateurs de la FAC si vous le souhaitez: `./installIdea-2017.2.5`
 
 # Projet
+https://github.com/kotlin/kotlinx.html/wiki
+http://ktor.io/samples/html.html
+http://ktor.io/servers/autoreload.html

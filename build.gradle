@@ -30,16 +30,28 @@ kotlin {
     }
 }
 
+
+
+
 repositories {
     mavenCentral()
     maven { url "https://dl.bintray.com/kotlin/kotlinx" }
     maven { url "https://dl.bintray.com/kotlin/ktor" }
+    maven { url "https://jcenter.bintray.com" }
 }
 
+
 dependencies {
+
+    def kotlinx_html_version = "0.6.4"
+
+    compile "org.jetbrains.kotlinx:kotlinx-html-jvm:$kotlinx_html_version"
+
     compile "ch.qos.logback:logback-classic:1.2.1"
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
     compile "io.ktor:ktor-server-netty:$ktor_version"
+    compile "io.ktor:ktor-server-core:$ktor_version"
+    compile "io.ktor:ktor-html-builder:$ktor_version"
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
 	    
