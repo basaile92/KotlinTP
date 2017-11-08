@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+cd ~
+
 LOCAL="/local/$USER"
 
 find='find -maxdepth 1 -type d -name ".*" -not -path ".." -not -path "." -printf "\"%p\" "'

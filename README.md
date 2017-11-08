@@ -7,9 +7,13 @@ TP Kotlin
 
 # Installation
 
-Le script `./gradlew` dans le dépot est suffisant pour le projet.
+Il faut un AVD sur votre propre ordinateur: installer anroid studio et suivez ce [lien](https://developer.android.com/studio/run/managing-avds.html)
 
-Cependant, si vous souhaitez un ide, nous vous invitons à utiliser [IntelliJ](https://www.jetbrains.com/idea/) qui a un plugin Kotlin intégré:
+Si vous êtes sur les ordis de la FAC on vous a fait un script d'installation: `./tools/checkAndroid`
+
+Lancez Android Studio 3 `android3` et procédez à l'installation des dépendances, etc.
+
+Le script `./gradlew` dans le dépot est suffisant pour la suite du projet.
 
 Vous pouvez utiliser le script d'installation dédié aux ordinateurs de la FAC si vous le souhaitez: `./installIdea-2017.2.5`
 
