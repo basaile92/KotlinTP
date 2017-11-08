@@ -29,8 +29,7 @@ read -r answer
 if [[ -z $answer ]] || [[ $answer = y ]]
 then
     mv -vi $filename $LOCAL/
-    ln -s $LOCAL/$filename
-    ls -l $filename
+    ln -vs $LOCAL/$filename
 else
     echo "Aborted"
 fi

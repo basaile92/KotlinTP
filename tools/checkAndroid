@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+
+NAME="TP_Kotlin"
+LOCAL=/local/$USER
+
+echo -e "# Configuration de l'installation dans $LOCAL\n"
+
+ls -lRd ~/.android 2>/dev/null |grep "^l" 1>/dev/null
+isSymlink=$?
+if ! [ -d ~/.android ]
+then
+    ! [ -d $LOCAL/.android ] && mkdir -v $LOCAL/.android
+    ln -sv $LOCAL/.android ~/.android
+elif [ $isSymlink -ne 0 ]
+then
+    echo "Un dossier ~/.android existe déja et pourrait être volumineux"
+    echo "Nous allons donc installer l'AVD dans $HOME alors que l'installation fait 1Giga"
+    echo "Si vous voulez vérifier votre quota ou faire de la place vous pouvez utiliser le script cleanSpace"
+    echo "-- Appuyez sur entrée pour serrer les fesses  --"
+    read
+else
+    echo "Vous avez un symlink sur ~/.android"
+fi
+
+name=$(/local/AndroidSDK/tools/bin/avdmanager list avd | grep Name | head -n 1 | awk '{ IFS=" " ; print $2 }')
+
+if [[ -n  $name ]]
+then
+    echo -e "\nUn AVD est déja installé: $name"
+    exit 0
+fi
+
+echo -e "\n-- Appuyez sur entrée pour lancer l'installation de l'AVD --"
+read
+
+/local/AndroidSDK/tools/bin/avdmanager create avd -n $NAME -k "system-images;android-25;google_apis;x86" --abi google_apis/x86
+
+name=$(/local/AndroidSDK/tools/bin/avdmanager list avd | grep Name | head -n 1 | awk '{ IFS=" "; print $2 }')
+if [[ -z name ]]
+then
+    echo "L'installation a échoué.."
+else
+    echo "L'AVD $name à été créé"
+fi
