@@ -1,0 +1,36 @@
+#! /usr/bin/env bash
+
+LOCAL="/local/$USER"
+
+find='find -maxdepth 1 -type d -name ".*" -not -path ".." -not -path "." -printf "\"%p\" "'
+quota -s -f ~/.. | tail -n 1 | awk '{ IFS = " "; print "Quota utilisé: "$1"\nQuota maximal: "$2"\nQuota dispo  : "$2-$1"M"}'
+
+echo "-- Calcul de l'espace des dossiers autogénéré --"
+
+lines=$(eval "du -hs $(eval $find) | sort -h")
+i=0
+IFS=$'\n'
+array=()
+for line in $lines
+do
+    printf "%2d)\t%s\n" $i $line
+    i=$((i + 1))
+    array+=( $line )
+done
+
+echo -n "Index of the folder to move to /local/$USER: "
+read index
+
+[[ -z $index ]] && exit
+
+filename=$(awk '{ IFS=" "; print $2}' <<< ${array[$index]})
+echo -n "Do you want to move $filename to $LOCAL: [Y/n]: "
+read -r answer
+if [[ -z $answer ]] || [[ $answer = y ]]
+then
+    mv -vi $filename $LOCAL/
+    ln -s $LOCAL/$filename
+    ls -l $filename
+else
+    echo "Aborted"
+fi
