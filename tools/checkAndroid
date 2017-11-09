@@ -22,7 +22,7 @@ else
     echo "Vous avez un symlink sur ~/.android"
 fi
 
-name=$(/local/AndroidSDK/tools/bin/avdmanager list avd | grep Name | head -n 1 | awk '{ IFS=" " ; print $2 }')
+name=$(/local/AndroidSDK/tools/bin/avdmanager list avd | grep Name | awk '{ IFS=" " ; print $2 }')
 
 if [[ -n  $name ]]
 then
@@ -33,7 +33,10 @@ fi
 echo -e "\n-- Appuyez sur entrée pour lancer l'installation de l'AVD --"
 read
 
-/local/AndroidSDK/tools/bin/avdmanager create avd -n $NAME -k "system-images;android-25;google_apis;x86" --abi google_apis/x86
+#/local/AndroidSDK/tools/bin/avdmanager create avd -n $NAME -k "system-images;android-27;google_apis;x86" --abi google_apis/x86
+/local/AndroidSDK/tools/bin/sdkmanager --install "system-images;android-27;google_apis;x86"
+
+/local/AndroidSDK/tools/bin/avdmanager create avd --device "Nexus 5" -n $NAME -k "system-images;android-27;google_apis;x86"
 
 name=$(/local/AndroidSDK/tools/bin/avdmanager list avd | grep Name | head -n 1 | awk '{ IFS=" "; print $2 }')
 if [[ -z name ]]
