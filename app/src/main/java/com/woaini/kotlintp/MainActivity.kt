@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
             var noteHauteur: NoteHauteur = NoteHauteur.stringToNoteHauteur(hauteurName)
             var noteRythme : NoteRythme = NoteRythme.stringToNoteRythme(rythmeName)
-            partition.addNote(Note(noteHauteur ,octaveNumber.text.toString().toInt(),  noteRythme))
+            partition.add(Note(noteHauteur ,octaveNumber.text.toString().toInt(),  noteRythme))
             adapter.notifyDataSetChanged()
         })
 
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         notesList.setOnItemClickListener(object : android.widget.AdapterView.OnItemClickListener {
             override fun onItemClick(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 val item = notesList.getItemAtPosition(position)
-                partition.removeNote(position)
+                partition.removeAt(position)
                 adapter.notifyDataSetChanged()
                 val toast = Toast.makeText(applicationContext, item.toString() + " " + getString(R.string.delete)  , Toast.LENGTH_SHORT)
                 toast.show()            }
