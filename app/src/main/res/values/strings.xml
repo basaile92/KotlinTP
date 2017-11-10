@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">MusicReader</string>
+    <string name="addNote">Ajouter Note</string>
+    <string name="play">Jouer</string>
+    <string name="octaveLabel">Octave:</string>
+    <string name="noteLabel">Note:</string>
+    <string name="rythmeLabel">Rythme:</string>
+    <string name="noteResultat" />
+    <string name="errorRythmeString">La chaine de caractere de rythme n\'est pas correcte.</string>
+    <string name="errorHauteurString">La Hauteur n\'est pas bonne</string>
+    <string name="clear" >Reset</string>
+    <string name="tempoLabel">Tempo (ms):</string>
+    <string name="cancel">Annuler</string>
+    <string name="delete">supprimé</string>
+    <string name="deleteMessage">Supprimer cette note?</string>
+</resources>

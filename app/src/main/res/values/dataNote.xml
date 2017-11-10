@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="notes_array">
+        <item>Do</item>
+        <item>Re</item>
+        <item>Mi</item>
+        <item>Fa</item>
+        <item>Sol</item>
+        <item>La</item>
+        <item>Si</item>
+    </string-array>
+</resources>
