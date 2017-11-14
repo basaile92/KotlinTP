@@ -74,7 +74,14 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                         noteText.setText(note.toString())
                     }
 
-                    Output.generateTone(note.frequence.toDouble(), (note.rythme.temps * tempo.text.toString().toFloat()).toInt()).play()
+                    var audioTrack: AudioTrack
+                    audioTrack = Output.generateTone(note.frequence.toDouble(), (note.rythme.temps * tempo.text.toString().toFloat()).toInt())
+
+                    if(audioTrack.state != AudioTrack.STATE_INITIALIZED ) {
+                        continue
+                    }
+                        audioTrack.play()
+
                     TimeUnit.MILLISECONDS.sleep(note.rythme.temps.toLong() * tempo.text.toString().toInt());
                 }
                 play.isClickable = true
