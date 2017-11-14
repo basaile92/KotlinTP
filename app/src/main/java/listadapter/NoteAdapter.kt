@@ -7,6 +7,9 @@ import android.widget.ArrayAdapter
 import android.view.LayoutInflater
 import android.widget.TextView
 import com.woaini.kotlintp.R
+import music.Note
+import music.Partition
+
 
 
 class NoteAdapter(context: Context,val textViewResourceId: Int,val notes: Partition) : ArrayAdapter<Note>(context, textViewResourceId, notes) {
