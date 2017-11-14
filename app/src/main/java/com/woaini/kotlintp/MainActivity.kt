@@ -10,6 +10,11 @@ import musicoutput.Output
 import java.util.concurrent.TimeUnit
 import android.widget.Toast
 import android.widget.AdapterView
+import music.Note
+import music.NoteHauteur
+import music.NoteRythme
+import music.Partition
+
 
 class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
